@@ -35,6 +35,12 @@ const QUOTES = [
 ];
 
 const pickQuote = () => {
+  const queryParams = new URL(document.location).searchParams;
+
+  if (queryParams.get('quote') !== null) {
+    return parseInt(queryParams.get('quote'));
+  }
+
   const today = new Date();
   const rng = new Math.seedrandom(
     `${today.getDate()}-${today.getMonth()}${today.getFullYear()}`
