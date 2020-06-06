@@ -1,0 +1,37 @@
+html {
+  color: #dbae60;
+  background: #2d3e50;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 5vw;
+}
+
+html {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+#attribution::before {
+  content: "\2014  ";
+}
+#attribution {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+#quoteWrapper {
+  margin: 0 40px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+  font-size: small;
+  color: #7c98b6;
+}
