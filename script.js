@@ -37,6 +37,10 @@ const QUOTES = [
 const pickQuote = () => {
   const queryParams = new URL(document.location).searchParams;
 
+  if (window.location.pathname === "/random" || window.location.pathname === "/random.html") {
+    return Math.floor(Math.random() * QUOTES.length)
+  }
+  
   if (queryParams.get('quote') !== null) {
     return parseInt(queryParams.get('quote'));
   }
