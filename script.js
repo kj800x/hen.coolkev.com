@@ -34,7 +34,7 @@ const QUOTES = [
   "When you feel the liquid enter my body, I know I'm about to be penetrated",
 ];
 
-const pickQuote = () => {
+function getQuoteText() {
   const queryParams = new URL(document.location).searchParams;
 
   if (window.location.pathname === "/random" || window.location.pathname === "/random.html") {
@@ -42,16 +42,23 @@ const pickQuote = () => {
   }
   
   if (queryParams.get('quote') !== null) {
-    return parseInt(queryParams.get('quote'));
+    return QUOTES[parseInt(queryParams.get('quote'))];
   }
 
   const today = new Date();
+
+  if (today.getDate() === 20 && today.getMonth() === 2) {
+    document.getElementById("attribution").innerHTML = "All of us"
+    return "Happy Birthday, Henry!";
+  }
+
   const rng = new Math.seedrandom(
     `${today.getDate()}-${today.getMonth()}${today.getFullYear()}`
   );
-  return Math.abs(rng.int32()) % QUOTES.length;
-};
+
+  return QUOTES[Math.abs(rng.int32()) % QUOTES.length];
+}
 
 ready(() => {
-  document.getElementById("quote").innerHTML = QUOTES[pickQuote()];
+  document.getElementById("quote").innerHTML = getQuoteText();
 });
